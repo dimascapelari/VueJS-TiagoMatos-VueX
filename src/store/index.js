@@ -32,6 +32,8 @@ export default createStore({
     cart: []
   },
   mutations: {
+    //commit
+
     storeUser(state, data) {
       state.user = data
       // console.log('storeUser', data)
@@ -55,6 +57,23 @@ export default createStore({
     }
   },
   actions: {
+    //dispatch
+
+    // storeUser(context, data) {
+    storeUser(context, data) {
+      // console.log(context, data)
+      // console.log(context.getters.total)
+
+      // context.state.user = data
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          context.commit('storeUser', data)
+          resolve()
+          // console.log('here')
+        }, 3000)
+      })
+    }
   },
   modules: {
   }

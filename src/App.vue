@@ -55,7 +55,10 @@ export default {
         last_name: "CaPeLaRi",
         email: "dimas@gmail.com",
       };
-      this.$store.commit("storeUser", newUser);
+      // this.$store.commit("storeUser", newUser);
+      this.$store.dispatch("storeUser", newUser).then(() => {
+        console.log("terminou com sucesso");
+      });
     },
     atualizaProdutos() {
       const newProd = {
@@ -78,12 +81,4 @@ export default {
 };
 </script>
 
-<style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-</style>
+<style></style>
