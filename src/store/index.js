@@ -7,14 +7,20 @@ export default createStore({
       last_name: "Capelari",
       email: "dimas.capelari@gmail.com",
     },
-    products: [],
+    produtos: {
+      camiseta: 10,
+      bermuda: 5,
+      chinelo: 15
+    },
     cart: []
   },
   mutations: {
     storeUser(state, data) {
-      // console.log('storeUser', data)
-
       state.user = data
+      // console.log('storeUser', data)
+    },
+    prodAtualizado(state, data) {
+      state.produtos = data
     }
   },
   actions: {

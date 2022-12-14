@@ -1,13 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" /><br />
+  <HelloWorld msg="VueX" />
+  <div>
+    Nome: {{ $store.state.user.first_name }}<br />
+    Sobrenome: {{ $store.state.user.last_name }}<br />
+    E-mail: {{ $store.state.user.email }}<br />
+    <button @click="updateUser()">Atualizar Perfil</button>
+  </div>
+  <hr />
+  <div>
+    <h3>Produtos Dimas</h3>
+    <label>Quantidade </label>
+    <input type="text" v-model="camiseta" />
+    Camisetas em estoque: {{ $store.state.produtos.camiseta }}<br />
 
-  Nome: {{ $store.state.user.first_name }}<br />
-  Sobrenome: {{ $store.state.user.last_name }}<br />
-  E-mail: {{ $store.state.user.email }}
+    <label>Quantidade </label>
+    <input type="text" v-model="bermuda" />
+    Bermudas em estoque: {{ $store.state.produtos.bermuda }}<br />
 
-  <button @click="updateUser()">Atualizar Perfil</button>
-
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+    <label>Quantidade </label>
+    <input type="text" v-model="chinelo" />
+    Chinelos em estoque: {{ $store.state.produtos.chinelo }}<br />
+    <button @click="atualizaProdutos()">Atualizar Produtos</button>
+  </div>
 </template>
 
 <script>
@@ -19,7 +33,11 @@ export default {
     HelloWorld,
   },
   data() {
-    return {};
+    return {
+      camiseta: "",
+      bermuda: "",
+      chinelo: "",
+    };
   },
   methods: {
     updateUser() {
@@ -28,9 +46,25 @@ export default {
         last_name: "CaPeLaRi",
         email: "dimas@gmail.com",
       };
-
       this.$store.commit("storeUser", newUser);
     },
+    atualizaProdutos() {
+      const newProd = {
+        camiseta: this.camiseta,
+        bermuda: this.bermuda,
+        chinelo: this.chinelo,
+      };
+      this.$store.commit("prodAtualizado", newProd);
+    },
+  },
+  mounted() {
+    // if (this.camiseta === "") {
+    //   // this.camiseta = 0;
+    //   this.$store.state.produtos.camiseta = 0;
+    // }
+    // if (this.camiseta === "") {
+    //   this.$store.state.produtos.camiseta = 0;
+    // }
   },
 };
 </script>
