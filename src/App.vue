@@ -1,10 +1,11 @@
 <template>
+  {{ $store.getters.total }}
   <AppProducts />
   <br />
   <button>Atualizar</button>
 
   <hr />
-  <HelloWorld msg="VueX" />
+  <HelloWorld msg="VueX Mutations" />
   <div>
     Nome: {{ $store.state.user.first_name }}<br />
     Sobrenome: {{ $store.state.user.last_name }}<br />

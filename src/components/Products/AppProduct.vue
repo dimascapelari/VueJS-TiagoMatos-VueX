@@ -1,17 +1,14 @@
 <template>
   <div class="card">
     {{ product.name }} - {{ product.price }}
-
     <!-- {{ carrinho }} -->
     <br />
     <button @click="addProduct()">Adicionar</button>
     <button v-if="carrinho.length !== 0" @click="removeProduct()">
       Remover
     </button>
-
     <br />
   </div>
-  <pre>{{ $store.state.cart }}</pre>
 </template>
 
 <script>

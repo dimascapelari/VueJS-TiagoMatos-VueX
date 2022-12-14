@@ -47,9 +47,14 @@ export default createStore({
       state.cart.splice(index, 1)
     }
   },
-  actions: {
-  },
   getters: {
+    total(state) {
+      // dependencia
+      // retornar um valor
+      return state.cart.reduce((total, item) => total += item.price, 0)
+    }
+  },
+  actions: {
   },
   modules: {
   }

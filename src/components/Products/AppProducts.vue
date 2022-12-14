@@ -5,6 +5,8 @@
       :key="index"
       :product="product"
     />
+
+    <pre>{{ $store.state.cart }}</pre>
   </div>
 </template>
 
