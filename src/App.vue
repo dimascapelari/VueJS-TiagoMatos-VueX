@@ -1,4 +1,9 @@
 <template>
+  <AppProducts />
+  <br />
+  <button>Atualizar</button>
+
+  <hr />
   <HelloWorld msg="VueX" />
   <div>
     Nome: {{ $store.state.user.first_name }}<br />
@@ -12,7 +17,6 @@
     <label>Quantidade </label>
     <input type="text" v-model="camiseta" />
     Camisetas em estoque: {{ $store.state.produtos.camiseta }}<br />
-
     <label>Quantidade </label>
     <input type="text" v-model="bermuda" />
     Bermudas em estoque: {{ $store.state.produtos.bermuda }}<br />
@@ -22,15 +26,19 @@
     Chinelos em estoque: {{ $store.state.produtos.chinelo }}<br />
     <button @click="atualizaProdutos()">Atualizar Produtos</button>
   </div>
+
+  <hr />
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import AppProducts from "./components/Products/AppProducts.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+    AppProducts,
   },
   data() {
     return {
@@ -70,11 +78,11 @@ export default {
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
-}
+} */
 </style>
